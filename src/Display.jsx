@@ -39,9 +39,6 @@ export default function Display({ str }) {
       setResultantStr
     );
   };
-  const isDuplicate = (char) => {
-    return resultantStr.indexOf(char) !== resultantStr.lastIndexOf(char);
-  };
 
   const charToColorMap = {};
   const colors = [
@@ -53,6 +50,7 @@ export default function Display({ str }) {
     'bg-purple-200',
     'bg-indigo-200',
   ];
+
   let colorIndex = 0;
   originalStr.forEach((char) => {
     if (!(char in charToColorMap)) {
