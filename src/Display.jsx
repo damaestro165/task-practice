@@ -39,20 +39,29 @@ export default function Display({ str }) {
       setResultantStr
     );
   };
-
   const isDuplicate = (char) => {
     return resultantStr.indexOf(char) !== resultantStr.lastIndexOf(char);
   };
 
+  const charToColorMap = {};
   const colors = [
-    'bg-red-500',
-    'bg-green-500',
-    'bg-blue-500',
-    'bg-yellow-500',
-    'bg-purple-500',
-    'bg-pink-500',
-    'bg-gray-500',
+    'bg-blue-200',
+    'bg-red-200',
+    'bg-green-200',
+    'bg-yellow-200',
+    'bg-pink-200',
+    'bg-purple-200',
+    'bg-indigo-200',
   ];
+  let colorIndex = 0;
+  originalStr.forEach((char) => {
+    if (!(char in charToColorMap)) {
+      charToColorMap[char] = colors[colorIndex % colors.length];
+      colorIndex++;
+    }
+  });
+
+  console.log(charToColorMap);
 
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-gray-100'>
@@ -70,7 +79,7 @@ export default function Display({ str }) {
           <div
             key={index}
             className={`flex items-center justify-between border border-gray-500 rounded-md px-4 py-2 mb-2  gap-2 ${
-              isDuplicate(char) && colors[index % colors.length]
+              isDuplicate(char) ? charToColorMap[char] : ''
             }`}
           >
             <span className='text-2xl font-bold'>{char}</span>
