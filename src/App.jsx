@@ -47,12 +47,12 @@ export function InputPage({ setInputValue, inputValue }) {
   };
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-gray-100'>
-      <h1 className='text-4xl font-bold mb-6'>Screen 1</h1>
-      <div className='flex items-center justify-center mb-6 '>
+      <p className='text-2xl font-bold mb-6'>Input your text:</p>
+      <div className='flex items-center justify-center mb-6 md:flex-row flex-col gap-5 '>
         <input
           type='text'
           placeholder='Enter a string'
-          className='border border-gray-500 rounded-md px-4 py-2 mr-4 w-96'
+          className='border border-gray-500 rounded-md px-4 py-2 mr-4  md:w-96'
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />

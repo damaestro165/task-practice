@@ -61,11 +61,9 @@ export default function Display({ str }) {
     }
   });
 
-  console.log(charToColorMap);
-
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-gray-100'>
-      <h1 className='text-4xl font-bold mb-6'>Screen 2</h1>
+      <h1 className='text-4xl font-bold mb-6'>Display</h1>
       <div className='mb-6'>
         <p className='text-lg font-bold mb-2'>Original String:</p>
         <p className='text-xl'>{originalStr}</p>
@@ -78,9 +76,7 @@ export default function Display({ str }) {
         {resultantStr.map((char, index) => (
           <div
             key={index}
-            className={`flex items-center justify-between border border-gray-500 rounded-md px-4 py-2 mb-2  gap-2 ${
-              isDuplicate(char) ? charToColorMap[char] : ''
-            }`}
+            className={`flex items-center justify-between border border-gray-500 rounded-md px-4 py-2 mb-2  gap-2 ${charToColorMap[char]}`}
           >
             <span className='text-2xl font-bold'>{char}</span>
             <button
